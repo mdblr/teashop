@@ -1,4 +1,10 @@
 <div ng-repeat='product in Shop.products'>
   <h5>{{product.name}}</h5>
   {{product}}
+  <br />
+  <button ng-click='Shop.select(product)'>Add</button>
+  <br />
+  <button ng-click='Shop.unselect(product, 1)'>Remove</button>
+  <br />
+  <button ng-click='Shop.delete(product)'>Delete</button>
 </div>
