@@ -11,18 +11,19 @@
       cart = {};
 
       items.add = function(tea) {
-        cart[tea._id] ? cart[tea._id].qty +=1 : cart[tea._id] = tea;
+        cart[tea._id] ? cart[tea._id].add++ : cart[tea._id] = tea;
+        cart[tea._id].add === 0 ? cart[tea._id].add++ : undefined;
       }
 
       items.remove = function(tea, modify) {
         if (!cart[tea._id]) {
-          alert(`There isn't any of ${tea.name} in your cart`)
+          alert(`There isn't any of ${tea.name} in your cart`);
         }
-        else if (cart[tea._id].qty < 2 || !modify) {
+        else if (cart[tea._id].add < 2 || !modify) {
           delete cart[tea._id];
         }
         else {
-          cart[tea._id].qty -=1;
+          cart[tea._id].add--;
         }
       }
 
