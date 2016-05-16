@@ -1,23 +1,13 @@
 (function() {
   angular
     .module('teaTime')
-    .controller('Store', Store )
+    .controller('Store', Store)
 
     function Store(StoreFront, Shop) {
 
-      var vm, gather, shop;
+      var vm, gather;
 
       gather = StoreFront.getItems();
-
-      shop = {
-          add: function() {
-              Shop.get();
-          },
-          remove: function() {
-              Shop.putBack();
-          }
-      }
-
       vm = this;
       vm.products = [];
 
@@ -26,10 +16,9 @@
           return vm.shelves;
       });
 
-      Cart.add
-
-      Cart.delete
-
+      vm.select = Shop.add; /*(id)*/
+      vm.unselect =  Shop.remove; /*(id, 1)*/
+      vm.remove = Shop.remove; /*(id)*/
 
     }
 
