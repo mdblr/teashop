@@ -19,10 +19,6 @@
         controllerAs: 'Checkout',
         controller: 'Store'
       })
-      .when('/', {
-        templateUrl: '/partials/ordernum.html',
-        controller: 'Store'
-      })
       .otherwise({
         redirectTo: '/store'
       });
