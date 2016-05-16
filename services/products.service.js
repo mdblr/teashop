@@ -14,6 +14,9 @@
             return $http.get('data/tea.json')
                 .then(function(data) {
                     items = data.data;
+                    items.forEach( (item) => {
+                      item.add = 0;
+                    });
                     return items;
                 })
                 .catch(function(error) {
