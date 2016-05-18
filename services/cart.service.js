@@ -10,34 +10,25 @@
       items = {};
       cart = {};
 
-      items.change = function(tea, val) {
+      items.add = function(tea, val) {
+
         if (!cart[tea._id]) {
-          cart[tea._id] = { item: tea, qty: 1 };
+          cart[tea._id] = tea;
+          cart[tea._id].qty = parseInt(val);
           return;
         }
-        var test = cart[tea._id].qty.valueOf();
-        var test2 = val;
         cart[tea._id].qty += parseInt(val);
-
       }
 
-      // items.add = function(tea) {
-      //   if (!cart[tea._id]) {
-      //     cart[tea._id] = [tea, { qty: 1 }] ;
-      //     return;
-      //   }
-      //   cart[tea._id][1].qty++;
-      // }
-      //
-      // items.remove = function(tea) {
-      //   console.log(cart[tea._id][1].qty)
-      //   if (cart[tea._id][1].qty < 1) {
-      //     delete cart[tea._id];
-      //     return;
-      //   }
-        // --cart[tea._id][1].qty;
+      items.edit = function(tea, val) {
+        cart[tea._id].qty = parseInt(val);
+        console.log(cart[tea._id].qty )
+      }
 
-      // }
+      items.remove = function(tea) {
+        console.log(tea);
+        delete cart[tea._id];
+      }
 
       items.cart = function() {
         return cart;
