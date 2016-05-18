@@ -20,13 +20,13 @@
                   var filter = [];
                   for (var i = 0; i < items.length; i++) {
                     items[i].price *= .01;
-                    items[i].ingredients = items[i].ingredients.split(",");
+                    items[i].qty = 0; 
                     items[i].categories.forEach(function(item) {
                       if (filter.indexOf(item) < 0){
                         filter.push(item);
                       }
                     })
-                    items[i].metaFilter = 'all'; 
+                    items[i].metaFilter = 'all';
                   }
 
                   return {
