@@ -1,55 +1,63 @@
-<a href='/store/checkout'>checkout</a>
-<br />
-<label>filter</label>
-<select ng-model='Shop.category'>
-  <option value='all'>All Categories</option>
-  <option ng-repeat='category in Shop.filter'>{{category}}</option>
-</select>
-<label>Order by Price</label>
-<select ng-model='Shop.itemPrice'>
-  <option value='none'>Select Option</option>
-  <option value='-price'>High</option>
-  <option value='price'>Low</option>
-</select>
-<div ng-repeat='tea in Shop.products | filter: Shop.category | orderBy: Shop.itemPrice'>
-  <h3>{{tea.name}}</h3>
-  <p>
-    <h4>Ingredients</h4>
-    <ul>
-      <li ng-repeat='ingredient in tea.ingredients'>
-        {{ingredient}}
-      </li>
-    </ul>
-  </p>
-  <p>
-    <h4>Categories</h4>
-    <ul>
-      <li ng-repeat='category in tea.categories'>
-        {{category}}
-      </li>
-    </ul>
-  </p>
-  <h4>Caffeine:<small>{{tea.caffeineScale}}</small></h4>
-  <h4>Price:<small>{{tea.price | currency}}</small></h4>
-  <h4>In Stock:<small>{{tea.inStock}}</small></h4>
+<div class='container'>
 
-  <section ng-show='Shop.cart[tea._id]'>
-    <select ng-model='Shop.qty' min=1 >
-      <option value='1'>1</option>
-      <option value='2'>2</option>
-      <option value='3'>3</option>
-      <option value='4'>4</option>
-      <option value='5'>5</option>
-      <option value='6'>6</option>
-      <option value='7'>7</option>
-      <option value='8'>8</option>
-      <option value='9'>9</option>
-      <option value='10'>10</option>
-    </select>
-  </section>
+  <header id='filterPadding' class='r alignCenter spaceBetween'>
+    <div class='r'>
+      <de-category-filter ctrl='Shop'></de-category-filter>
+      <section>
+        <label>Search for name: </label> <input type="text" ng-model='Shop.filterName' placeholder='(:' />
+      </section>
+    </div>
+    <a href='/store/checkout'>checkout</a>
+  </header>
 
-  <button ng-click='Shop.alterCart(tea, Shop.qty)'>Add</button>
+  <table class='table-bordered'>
+    <tr>
+      <th> Tea </th>
+      <th colspan='2'>
+        Information
+        <de-order-by-price class='pull-right' ctrl='Shop'></de-order-by-price>
+      </th>
+    </tr>
 
-  </section>
+    <tr ng-repeat='tea in Shop.products | filter: Shop.category | filter: Shop.filterName | orderBy: Shop.itemPrice'>
 
+      <td> <img ng-src='{{tea.imageUrl}}' /> </td>
+      <td colspan='2'>
+        <section class='r spaceBetween alignCenter'>
+
+          <header class='inlineFlex'>
+            <h2> {{tea.name}} </h2>
+          </header>
+
+          <de-edit-cart ctrl='Shop' function='Shop.add(tea, qty)' class='spaceBetween'> </de-edit-cart>
+
+        </section>
+
+        <p>
+          <span>Price:</span> {{tea.price | currency}}
+        </p>
+        <p>
+          <span>Caffeine Scale:</span> {{ tea.caffeineScale }}
+        </p>
+        <p>
+          <span>Ingredients:</span> {{ tea.ingredients }}
+        </p>
+        <p>
+          <span>Rating:</span> {{ tea.rating }}
+        </p>
+        <p>
+          <span>In Stock?</span> {{ tea.inStock }}
+        </p>
+
+        <section>
+          <span>Categories:</span>
+          <ul>
+            <li ng-repeat='li in tea.categories'> {{li}} </li>
+          </ul>
+        </section>
+
+      </td>
+
+    </tr>
+  </table>
 </div>
