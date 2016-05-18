@@ -5,26 +5,42 @@
 
     function Shop()  {
 
-      var items, cart;
+      var items, cart, qty;
 
       items = {};
       cart = {};
 
-      items.add = function(tea) {
-        cart[tea._id] ? cart[tea._id].add++ : cart[tea._id] = tea;
-        cart[tea._id].add === 0 ? cart[tea._id].add++ : undefined;
+      items.change = function(tea, val) {
+        if (!cart[tea._id]) {
+          cart[tea._id] = { item: tea, qty: 1 };
+          return;
+        }
+        var test = cart[tea._id].qty.valueOf();
+        var test2 = val;
+        cart[tea._id].qty += parseInt(val);
+
       }
 
-      items.remove = function(tea, modify) {
-        if (!cart[tea._id]) {
-          alert(`There isn't any of ${tea.name} in your cart`);
-        }
-        else if (cart[tea._id].add < 2 || !modify) {
-          delete cart[tea._id];
-        }
-        else {
-          cart[tea._id].add--;
-        }
+      // items.add = function(tea) {
+      //   if (!cart[tea._id]) {
+      //     cart[tea._id] = [tea, { qty: 1 }] ;
+      //     return;
+      //   }
+      //   cart[tea._id][1].qty++;
+      // }
+      //
+      // items.remove = function(tea) {
+      //   console.log(cart[tea._id][1].qty)
+      //   if (cart[tea._id][1].qty < 1) {
+      //     delete cart[tea._id];
+      //     return;
+      //   }
+        // --cart[tea._id][1].qty;
+
+      // }
+
+      items.cart = function() {
+        return cart;
       }
 
       return items;
