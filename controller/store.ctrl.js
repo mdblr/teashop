@@ -9,7 +9,6 @@
 
         vm = this;
         vm.products = [];
-        vm.val = 1;
         gather = StoreFront.getItems();
 
         gather.then(function(tea) {
@@ -18,12 +17,12 @@
         });
 
         vm.cart = Shop.cart()
-        vm.alterCart = Shop.change;
+        vm.add = Shop.add;
+        vm.edit = Shop.edit; 
+        vm.delete = Shop.remove;
         vm.category = 'all';
         vm.itemPrice = 'none';
-        // vm.select = Shop.add; /*(id)*/
-        // vm.unselect =  Shop.remove; /*(id)*/
-        // vm.delete =  Shop.remove; /*(id, 0)*/
+
     }
 
 })();
