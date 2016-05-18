@@ -15,10 +15,16 @@
         <script src="/controller/store.ctrl.js" charset="utf-8"></script>
         <script src="/services/products.service.js" charset="utf-8"></script>
         <script src="/services/cart.service.js" charset="utf-8"></script>
-    </head>
+        <script src="/directives/EditCart.directive.js" charset="utf-8"></script>
+        <script src="/directives/categoryFilter.directive.js" charset="utf-8"></script>
+        <script src="/directives/orderByPrice.directive.js" charset="utf-8"></script>
+
+        <link rel="stylesheet" href='css/master.css' />
+  </head>
 
     <body>
-        <section ng-view></section>
+      <h1>We Love Tea!</h1>
+        <section class='container-fluid' ng-view></section>
     </body>
 
 </html>
