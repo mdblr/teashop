@@ -14,10 +14,25 @@
             return $http.get('data/tea.json')
                 .then(function(data) {
                     items = data.data;
-                    items.forEach( (item) => {
-                      item.add = 0;
-                    });
                     return items;
+                })
+                .then(function(items) {
+                  var filter = [];
+                  for (var i = 0; i < items.length; i++) {
+                    items[i].price *= .01;
+                    items[i].ingredients = items[i].ingredients.split(",");
+                    items[i].categories.forEach(function(item) {
+                      if (filter.indexOf(item) < 0){
+                        filter.push(item);
+                      }
+                    })
+                    items[i].metaFilter = 'all'; 
+                  }
+
+                  return {
+                    products: items,
+                    categories: filter
+                  };
                 })
                 .catch(function(error) {
                     console.log(error);
@@ -25,6 +40,5 @@
         }
 
         return tea;
-
     }
 })();
