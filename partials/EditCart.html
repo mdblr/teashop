@@ -1,0 +1,18 @@
+<div class='r alignCenter'>
+  <span class='font2em'> Quantity:&nbsp;</span>
+    <select ng-init='val="1"' ng-model='val'>
+      <option value='1'>1</option>
+      <option value='2'>2</option>
+      <option value='3'>3</option>
+      <option value='4'>4</option>
+      <option value='5'>5</option>
+      <option value='6'>6</option>
+      <option value='7'>7</option>
+      <option value='8'>8</option>
+      <option value='9'>9</option>
+      <option value='10'>10</option>
+    </select>
+  &nbsp;
+  <!-- <button ng-click='ctrl.add(item, val)' class='btn btn-lrg btn-default'>Add</button> -->
+  <button ng-click='function({qty:val})' class='btn btn-lrg btn-default'>Add</button>
+</div>
