@@ -1,10 +1,55 @@
-<div ng-repeat='product in Shop.products'>
-  <h5>{{product.name}}</h5>
-  {{product}}
-  <br />
-  <button ng-click='Shop.select(product)'>Add</button>
-  <br />
-  <button ng-click='Shop.unselect(product, 1)'>Remove</button>
-  <br />
-  <button ng-click='Shop.delete(product)'>Delete</button>
+<a href='/store/checkout'>checkout</a>
+<br />
+<label>filter</label>
+<select ng-model='Shop.category'>
+  <option value='all'>All Categories</option>
+  <option ng-repeat='category in Shop.filter'>{{category}}</option>
+</select>
+<label>Order by Price</label>
+<select ng-model='Shop.itemPrice'>
+  <option value='none'>Select Option</option>
+  <option value='-price'>High</option>
+  <option value='price'>Low</option>
+</select>
+<div ng-repeat='tea in Shop.products | filter: Shop.category | orderBy: Shop.itemPrice'>
+  <h3>{{tea.name}}</h3>
+  <p>
+    <h4>Ingredients</h4>
+    <ul>
+      <li ng-repeat='ingredient in tea.ingredients'>
+        {{ingredient}}
+      </li>
+    </ul>
+  </p>
+  <p>
+    <h4>Categories</h4>
+    <ul>
+      <li ng-repeat='category in tea.categories'>
+        {{category}}
+      </li>
+    </ul>
+  </p>
+  <h4>Caffeine:<small>{{tea.caffeineScale}}</small></h4>
+  <h4>Price:<small>{{tea.price | currency}}</small></h4>
+  <h4>In Stock:<small>{{tea.inStock}}</small></h4>
+
+  <section ng-show='Shop.cart[tea._id]'>
+    <select ng-model='Shop.qty' min=1 >
+      <option value='1'>1</option>
+      <option value='2'>2</option>
+      <option value='3'>3</option>
+      <option value='4'>4</option>
+      <option value='5'>5</option>
+      <option value='6'>6</option>
+      <option value='7'>7</option>
+      <option value='8'>8</option>
+      <option value='9'>9</option>
+      <option value='10'>10</option>
+    </select>
+  </section>
+
+  <button ng-click='Shop.alterCart(tea, Shop.qty)'>Add</button>
+
+  </section>
+
 </div>
