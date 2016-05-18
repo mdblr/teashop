@@ -1,0 +1,52 @@
+*  {
+  box-sizing: border-box;
+}
+
+table {
+  width: 100%;
+}
+th {
+  padding: 0.3em 1em 0.2em 1em;
+}
+
+td {
+  padding: 1em 1.5em;
+}
+
+.r {
+  display: flex;
+  flex-direction: row;
+}
+
+.c {
+  display: flex;
+  flex-direction: column;
+}
+
+.alignCenter {
+  align-items: center;
+}
+
+.alignTop {
+  align-items: baseline;
+}
+
+.inlineFlex {
+  display:inline-flex;
+}
+
+.spaceBetween {
+  justify-content: space-between;
+}
+
+.font2em {
+  font-size: 2em;
+}
+
+#filterPadding {
+  padding-bottom: .5em;
+}
+
+section > span, p > span {
+  font-weight: bolder;;
+}
