@@ -13,7 +13,6 @@
       function edit(Shop) {
         var vm = this;
         vm.keepValue = true;
-        vm.orderTotal = Shop.total();
       }
 
       function link (scope, element, attrs, edit) {
