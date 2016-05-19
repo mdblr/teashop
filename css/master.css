@@ -50,3 +50,17 @@ td {
 section > span, p > span {
   font-weight: bolder;
 }
+
+#welcome {
+  font-size: 4em;
+  color: red;
+  font-style: italic;
+  margin: .2em 0; 
+}
+
+#tab {
+  color: white;
+  font-weight: bold;
+  background-color: red;
+  font-size: 1.2em;
+}
