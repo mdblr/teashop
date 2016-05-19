@@ -21,6 +21,7 @@
         vm.edit = Shop.edit;
         vm.delete = Shop.remove;
         vm.orderTotal = Shop.total;
+        vm.cartLength = Shop.cartLength; 
 
         vm.category = 'all';
         vm.itemPrice = 'none';
