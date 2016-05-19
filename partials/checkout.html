@@ -1,6 +1,44 @@
-<h1>checkout</h1>
-<div ng-repeat='item in Checkout.cart'>
-  {{item.item.name}}
-  {{item.qty}}
-  <button>Delete</button>
+<div class="container">
+
+  <h2>My Shopping Bag</h2>
+
+  <section class='inlineFlex spaceBetween'>
+    <h3>Order Total: {{ Checkout.orderTotal | currency}}</h3>
+  </section>
+  <table class='table-bordered'>
+    <tr>
+      <th>Product</th>
+      <th>Quantity</th>
+      <th>Sub-total</th>
+    </tr>
+    <tr ng-repeat='tea in Checkout.cart'>
+      <td>
+        <h3>{{tea.name}}</h3>
+        <img ng-src='{{tea.imageUrl}}' />
+        <p>
+          <span>Caffeine Scale:</span> {{ tea.caffeineScale }}
+        </p>
+        <p>
+          <span>Ingredients:</span> {{ tea.ingredients }}
+        </p>
+        <p>
+          <span>Rating:</span> {{ tea.rating }}
+        </p>
+      </td>
+      <td>
+        <section ng-show='edit.keepValue' on-change='Checkout.orderTotal()'>
+          {{tea.qty}}
+        </section>
+        <section ng-hide='edit.keepValue'>
+          <input type='number' ng-model='tea.qty' min=0 />
+        </section>
+      </td>
+      <td>{{tea.price * tea.qty | currency}}</td>
+      <td>
+        <button edit class="btn btn-info" ng-click='edit.keepValue=!edit.keepValue'>Edit</button>
+        <button class='btn btn-danger' ng-click='Checkout.delete(tea)'>Delete</button>
+      </td>
+    </tr>
+  </table>
+
 </div>
