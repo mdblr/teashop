@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Shopping Cart Component</title>
+        <title>Mean Teas</title>
         <!-- tbootstrap 3 -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
         <!-- Angular -->
@@ -19,22 +19,30 @@
         <script src="/directives/EditCart.directive.js" charset="utf-8"></script>
         <script src="/directives/categoryFilter.directive.js" charset="utf-8"></script>
         <script src="/directives/orderByPrice.directive.js" charset="utf-8"></script>
+        <script src="/filters/inStock.filter.js" charset="utf-8"></script>
+
 
         <link rel="stylesheet" href='css/master.css' />
   </head>
 
     <body>
-        <header class='container'>
-         <section class='navbar navbar-default'>
+      <section class='container'>
+        <div id='tab' class='text-center'>
+          Guaranteed Awesome!
+        </div>
+        <div id='welcome'>
+          Welcome to MEAN Tea!
+        </div>
+         <header class='navbar navbar-default'>
             <ul class="nav navbar-nav">
              <li><a href='/'>Home</a></li>
              <li><a href="/">About</a></li>
              <li><a href="/">Contact</a></li>
            </ul>
-         </section>
+         </header>
+     </section>
 
-        </header>
-        <section class='container-fluid' ng-view></section>
+      <section class='container-fluid' ng-view></section>
     </body>
 
 </html>
