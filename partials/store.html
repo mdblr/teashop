@@ -2,9 +2,10 @@
 
   <header id='filterPadding' class='r alignCenter spaceBetween'>
     <div class='r'>
-      <de-category-filter ctrl='Shop'></de-category-filter>
+      <de-category-filter ctrl='Shop'></de-category-filter>&nbsp;
       <section>
-        <label>Search for name: </label> <input type="text" ng-model='Shop.filterName' placeholder='(:' />
+        <label>Search for name: </label>
+        <input type="text" ng-model='Shop.filterName' placeholder='(:' />
       </section>
     </div>
     <a href='/store/checkout'>checkout</a>
@@ -20,17 +21,14 @@
     </tr>
 
     <tr ng-repeat='tea in Shop.products | filter: Shop.category | filter: Shop.filterName | orderBy: Shop.itemPrice'>
-
       <td> <img ng-src='{{tea.imageUrl}}' /> </td>
       <td colspan='2'>
         <section class='r spaceBetween alignCenter'>
-
           <header class='inlineFlex'>
             <h2> {{tea.name}} </h2>
           </header>
 
-          <de-edit-cart ctrl='Shop' function='Shop.add(tea, qty)' class='spaceBetween'> </de-edit-cart>
-
+          <de-add-item ctrl='Shop' function='Shop.add(tea, qty)' class='spaceBetween'> </de-add-item>
         </section>
 
         <p>
@@ -55,9 +53,8 @@
             <li ng-repeat='li in tea.categories'> {{li}} </li>
           </ul>
         </section>
-
       </td>
-
     </tr>
+
   </table>
 </div>
