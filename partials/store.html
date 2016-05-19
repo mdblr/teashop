@@ -8,7 +8,7 @@
         <input type="text" ng-model='Shop.filterName' placeholder='(:' />
       </section>
     </div>
-    <a href='/store/checkout'>checkout</a>
+    <a class='btn btn-info' href='/store/checkout'>Checkout Bag ({{Shop.cart.length}})</a>
   </header>
 
   <table class='table-bordered'>
@@ -44,7 +44,7 @@
           <span>Rating:</span> {{ tea.rating }}
         </p>
         <p>
-          <span>In Stock?</span> {{ tea.inStock }}
+          <span>In Stock?</span> {{ tea.inStock | stockFilter}}
         </p>
 
         <section>
