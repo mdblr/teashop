@@ -18,8 +18,10 @@
 
         vm.cart = Shop.cart()
         vm.add = Shop.add;
-        vm.edit = Shop.edit; 
+        vm.edit = Shop.edit;
         vm.delete = Shop.remove;
+        vm.orderTotal = Shop.total;
+
         vm.category = 'all';
         vm.itemPrice = 'none';
 
