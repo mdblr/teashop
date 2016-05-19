@@ -17,6 +17,7 @@
         <img ng-src='{{tea.imageUrl}}' />
         <p>
           <span>Caffeine Scale:</span> {{ tea.caffeineScale }}
+          <de-caf-m ng-attr-scale='{{tea.caffeineScale}}'></de-caf-m>
         </p>
         <p>
           <span>Ingredients:</span> {{ tea.ingredients }}
@@ -38,7 +39,9 @@
         <button edit class="btn btn-info" ng-click='edit.keepValue=!edit.keepValue'>Edit</button>
         <button class='btn btn-danger' ng-click='Checkout.delete(tea)'>Delete</button>
       </td>
+
     </tr>
   </table>
+
 
 </div>
