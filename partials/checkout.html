@@ -3,7 +3,7 @@
   <h2>My Shopping Bag</h2>
 
   <section class='inlineFlex spaceBetween'>
-    <h3>Order Total: {{ Checkout.orderTotal | currency}}</h3>
+    <h3>Order Total: {{ Checkout.orderTotal() | currency}}</h3>
   </section>
   <table class='table-bordered'>
     <tr>
@@ -26,7 +26,7 @@
         </p>
       </td>
       <td>
-        <section ng-show='edit.keepValue' on-change='Checkout.orderTotal()'>
+        <section ng-show='edit.keepValue'>
           {{tea.qty}}
         </section>
         <section ng-hide='edit.keepValue'>
